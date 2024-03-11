@@ -104,6 +104,9 @@ vim.opt.number = true
 --  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
+-- Draw a line at column 120
+vim.opt.colorcolumn = '120'
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
@@ -729,9 +732,18 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      -- vim.cmd.colorscheme 'tokyonight-night'
 
       -- You can configure highlights by doing something like
+      -- vim.cmd.hi 'Comment gui=none'
+    end,
+  },
+
+  {
+    'loctvl842/monokai-pro.nvim',
+    priority = 1000, -- make sure to load this before all the other start plugins
+    init = function()
+      vim.cmd.colorscheme 'monokai-pro'
       vim.cmd.hi 'Comment gui=none'
     end,
   },
